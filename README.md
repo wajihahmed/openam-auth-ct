@@ -32,55 +32,51 @@ Required SSO integration components:
 
    1. OpenAM 12.x or 13.x
    2. A web container preferably Tomcat 8.x.
-   3. Custom authentication module components which is bundled in this zip file.
+   3. Custom authentication module which is compiled from this repository.
 
 
 OpenAM Installation and Configuration:
 =======================================
 
-  1. Create a temporary directory /export/tmp and explode the openam.war
-     using jar -xvf openam.war.
-     From now on, /export/tmp is called as a war staging area and is
-     represented with a marco $WAR_DIR
+  1. Create a temporary directory ($WAR_DIR) /var/tmp/amwar and explode 
+     the openam.war into it as follows
+     $ cd /var/tmp/amwar
+     $ jar xvf openam.war
 
-  2. Copy build/ctauthmodule.jar to $WAR_DIR/WEB-INF/lib
+  2. Copy target/openam-auth-ct-X.X.X.jar to $WAR_DIR/WEB-INF/lib
 
   3. Copy resources/CTAuthService.properties to $WAR_DIR/WEB-INF/classes
 
   4. Copy resources/CTAuthService.xml to $WAR_DIR/config/auth/default and
      also to the directory $WAR_DIR/config/auth/default_en
 
-  5. Re-war openam.war using jar cvf openam.war from $WAR_DIR
+  5. Re-war openam.war 
+     $ jar cvf ../openam.war .
 
-  6. Deploy openam.war onto OpenAM web container. The deployment is self
-     explanatory. Please check the web container documentation for war
-     deployment.
+  6. Deploy openam.war onto your container and restart it
 
-  7. Access the deployed application using
+  7. Access OpenAM by pointing your browser to
       http://host:port/openam
 
-  8. Accessing deployed application redirects to openam configurator.
-     Choose custom configuration. By default OpenAM uses embedded directory
-     server for configuration, however, you could choose to use existing
-     or a new directory server instance for configuration.
+  8. You will now see the OpenAM Configuration screen.  Choose "Custom 
+     Configuration" and complete the wizard.  Refer to the OpenAM 
+     Installation Guide for futher details.
 
-     Note: OpenAM can be configured to use various user repository for
-     validating the user existance, however, you could also choose to ignore profile.
-
-  9. After successful configuration, the configuration redirects to the login page
+  9. After successful configuration you will be redirected to the 
+     OpenAM Admin Console's Login page. 
 
 
 Auth module configuration:
 ==========================
 
 Now we have to load the RSA ClearTurst authentication module service into
-OpenAM and configure for the SSO integration. The auth module service
-is loaded from a OpenAM command line utility called as "ssoadm". For OpenAM,
-the ssoadm utility is also exposed as ssoadm.jsp.
+OpenAM and configure it. The auth module service is loaded from a OpenAM 
+command line utility called as "ssoadm". In OpenAM the ssoadm utility is 
+also exposed as ssoadm.jsp.
 
 If you want to use the commandline then refer to the following URL and skip
 step 1-5
-https://backstage.forgerock.com/#!/docs/openam/12.0.0/dev-guide#chap-auth-spi
+   https://backstage.forgerock.com/#!/docs/openam/12.0.0/dev-guide#chap-auth-spi
 
 Here we will use use browser based ssoadm.jsp for OpenAM configuration
 changes.
@@ -106,7 +102,7 @@ changes.
 
   6. Now verify that the auth module is registered to the default realm.
      http://host:port/openam, click on default realm, and click on
-     "authentication" tab, click "New", you should see "RSA ClearTrust" in the
+     "Authentication", click "New", you should see "RSA ClearTrust" in the
      list of modules.
 
   7. Click on "RSA ClearTrust" and create a new module instance called "CTAuth"
@@ -114,11 +110,13 @@ changes.
   8. Once the instance is created go back to Authentication and click on "CTAuth"
      to configure it. Fill in the form and save.
 
+  9.  Restart openam by restarting the container it is running in
+
 
 Testing:
-=======
+========
 
-The testing of the module  assumes that ClearTrust SDK is already
+The testing of the module assumes that ClearTrust SDK is already
 installed and configured. Please check the ClearTrust documentation
 for ClearTrust SDK installation.
 
@@ -139,13 +137,15 @@ path is usually sdk/java/runtime/lib.
    http://host:port/openam/XUI/#login/&module=CTAuth or if using Legacy UI
    http://host:port/openam/UI/Login?module=CTAuth
 
-   This should provide a valid OpenAM session.
+   This should Single Sign you into OpenAM AND provide a valid OpenAM session.
 
    Note: Assumption here is that ClearTrust and OpenAM are in the same
-         physical domain.
+         cookie domain.
 
    By default OpenAM authentication framework looks for user profile existance
    in it's known data repositories. However, you could use ignoreProfile
    option if your integration does not require a user to be searched from
    ClearTrust's user repository. Check the OpenAM documentation for more info
    about ignoreProfile option.
+
+3. You can also use the test.sh curl wrapper shell script to test the module.
