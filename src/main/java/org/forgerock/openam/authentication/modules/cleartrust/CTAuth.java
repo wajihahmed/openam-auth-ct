@@ -191,7 +191,7 @@ public class CTAuth extends AMLoginModule {
                 apiStatus = apiClient.connect(value);
 
                 // Disconnect from ClearTrust
-                //apiClient.disconnect();
+                apiClient.disconnect();
             }
           }
         }
