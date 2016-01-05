@@ -15,8 +15,8 @@ This zip file contains following components.
     3. common.cfg, compile.sh and test.sh - scripts for compiling and testing the auth
        module. Edit common.cfg for your enviorment before compiling and testing.
 
-    Note: The ClearTrust SDK jar files are not shipped with this zip file for licensing
-    issues.
+    Note: The ClearTrust SDK jar files are not included in this repository due to
+          licensing restrictions.
 
 
 
