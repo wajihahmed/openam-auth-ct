@@ -57,7 +57,7 @@ OpenAM Installation and Configuration:
      deployment.
 
   7. Access the deployed application using
-      http://<host>:<port>/openam
+      http://host:port/openam
 
   8. Accessing deployed application redirects to openam configurator.
      Choose custom configuration. By default OpenAM uses embedded directory
@@ -89,7 +89,7 @@ changes.
      https://wikis.forgerock.org/confluence/display/openam/Activate+ssoadm.jsp
 
   2. Now access the following URL provided that you have
-     http://<host>:<port>/openam/ssoadm.jsp
+     http://host:port/openam/ssoadm.jsp
 
   3. Choose "create-svc" option.
 
@@ -98,14 +98,14 @@ changes.
 
   5. Now register the auth module into the authentication core framework.
 
-     http://<host>:<port>/openam/ssoadm.jsp
+     http://host:port/openam/ssoadm.jsp
      Choose "register-auth-module option".
      Enter "org.forgerock.openam.authentication.modules.cleartrust.CTAuth" as the
      auth module class name.
 
 
   6. Now verify that the auth module is registered to the default realm.
-     http://<host>:<port>/openam, click on default realm, and click on
+     http://host:port/openam, click on default realm, and click on
      "authentication" tab, click "New", you should see "RSA ClearTrust" in the
      list of modules.
 
@@ -136,8 +136,8 @@ path is usually sdk/java/runtime/lib.
 2. After successful authentication at ClearTrust server, access the OpenAM
    auth module url as follows:
 
-   http://<host>:<port>/openam/UI/Login?module=CTAuth or
-   http://<host>:<port>/openam/XUI/#login/&module=CTAuth
+   http://host:port/openam/XUI/#login/&module=CTAuth or if using Legacy UI
+   http://host:port/openam/UI/Login?module=CTAuth
 
    This should provide a valid OpenAM session.
 
