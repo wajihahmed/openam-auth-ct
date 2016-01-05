@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE ServicesConfiguration
+    PUBLIC "=//iPlanet//Service Management Services (SMS) 1.0 DTD//EN"
+    "jar://com/sun/identity/sm/sms.dtd">
+
+<ServicesConfiguration>
+    <Service name="iPlanetAMAuthCTAuthService" version="1.0">
+        <Schema
+            serviceHierarchy="/DSAMEConfig/authentication/iPlanetAMAuthCTAuthService"
+            i18nFileName="CTAuthService"
+            revisionNumber="10"
+            i18nKey="ctauth-service-description">
+            <Organization>
+
+                <AttributeSchema name="CTCookieName"
+                    type="single"
+                    syntax="string"
+                    i18nKey="a101">
+                    <DefaultValues>
+                        <Value>CTSESSION</Value>
+                    </DefaultValues>
+                </AttributeSchema>
+
+                <AttributeSchema name="DispatchServer"
+                    type="single"
+                    syntax="string"
+                    i18nKey="a102">
+                      <DefaultValues>
+                        <Value>localhost</Value>
+                    </DefaultValues>
+                </AttributeSchema>
+
+                <AttributeSchema name="DispatchServerPort"
+                    type="single"
+                    syntax="number_range" rangeStart="0" rangeEnd="2147483647"
+                    i18nKey="a103">
+                    <DefaultValues>
+                        <Value>5608</Value>
+                    </DefaultValues>
+                </AttributeSchema>
+
+               <AttributeSchema name="RemoteUserHeaderName"
+                    type="single"
+                    syntax="string"
+                    i18nKey="a104">
+                    <DefaultValues>
+                        <Value>REMOTE_USER</Value>
+                    </DefaultValues>
+                </AttributeSchema>
+
+                <AttributeSchema name="TrustRemoteUserHeaderOnly"
+                    type="single"
+                    syntax="boolean"
+                    i18nKey="a105">
+                    <BooleanValues>
+                         <BooleanTrueValue  i18nKey="i18nTrue">true</BooleanTrueValue>
+                         <BooleanFalseValue i18nKey="i18nFalse">false</BooleanFalseValue>
+                    </BooleanValues>
+                    <DefaultValues>
+                        <Value>false</Value>
+                    </DefaultValues>
+                </AttributeSchema>
+
+                <AttributeSchema name="iplanet-am-auth-ctauth-auth-level"
+                    type="single"
+                    syntax="number_range" rangeStart="0" rangeEnd="2147483647"
+                    i18nKey="a106">
+                    <DefaultValues>
+                    <Value>1</Value>
+                    </DefaultValues>
+                </AttributeSchema>
+
+            <SubSchema name="serverconfig" inheritance="multiple">
+                <AttributeSchema name="CTCookieName"
+                    type="single"
+                    syntax="string"
+                    i18nKey="a101">
+                    <DefaultValues>
+                        <Value>CTSESSION</Value>
+                    </DefaultValues>
+                </AttributeSchema>
+
+                <AttributeSchema name="DispatchServer"
+                    type="single"
+                    syntax="string"
+                    i18nKey="a102">
+                    <DefaultValues>
+                        <Value>localhost</Value>
+                    </DefaultValues>
+                </AttributeSchema>
+
+                <AttributeSchema name="DispatchServerPort"
+                    type="single"
+                    syntax="number_range" rangeStart="0" rangeEnd="2147483647"
+                    i18nKey="a103">
+                    <DefaultValues>
+                        <Value>5068</Value>
+                    </DefaultValues>
+                </AttributeSchema>
+
+                <AttributeSchema name="RemoteUserHeaderName"
+                    type="single"
+                    syntax="string"
+                    i18nKey="a104">
+                    <DefaultValues>
+                        <Value>REMOTE_USER</Value>
+                    </DefaultValues>
+                </AttributeSchema>
+
+                <AttributeSchema name="TrustRemoteUserHeaderOnly"
+                    type="single"
+                    syntax="boolean"
+                    i18nKey="a105">
+                    <BooleanValues>
+                         <BooleanTrueValue  i18nKey="i18nTrue">true</BooleanTrueValue>
+                         <BooleanFalseValue i18nKey="i18nFalse">false</BooleanFalseValue>
+                    </BooleanValues>
+                    <DefaultValues>
+                        <Value>false</Value>
+                    </DefaultValues>
+                </AttributeSchema>
+
+                <AttributeSchema name="iplanet-am-auth-ctauth-auth-level"
+                    type="single"
+                    syntax="number_range" rangeStart="0" rangeEnd="2147483647"
+                    i18nKey="a106">
+                    <DefaultValues>
+                    <Value>1</Value>
+                    </DefaultValues>
+                </AttributeSchema>
+
+            </SubSchema>
+
+           </Organization>
+        </Schema>
+    </Service>
+</ServicesConfiguration>
+
+
