@@ -23,8 +23,8 @@ This zip file contains following components.
 Pre-requisites :
 ================
 
-   1. RSA ClearTurst server X.X or higer version installed and configured.
-   2. RSA ClearTurst Runtime SDK X.X or higher version installed and configured.
+   1. RSA ClearTrust server X.X or higer version installed and configured.
+   2. RSA ClearTrust Runtime SDK X.X or higher version installed and configured.
    3. openam.war from OpenAM Distribution Kit
 
 Required SSO integration components:
@@ -69,7 +69,7 @@ OpenAM Installation and Configuration:
 Auth module configuration:
 ==========================
 
-Now we have to load the RSA ClearTurst authentication module service into
+Now we have to load the RSA ClearTrust authentication module service into
 OpenAM and configure it. The auth module service is loaded from a OpenAM 
 command line utility called as "ssoadm". In OpenAM the ssoadm utility is 
 also exposed as ssoadm.jsp.
