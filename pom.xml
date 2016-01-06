@@ -50,7 +50,7 @@
                         <index>true</index>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <classpathPrefix>lib/</classpathPrefix>
+                            <!--classpathPrefix>lib/</classpathPrefix-->
                         </manifest>
                         <manifestEntries>
                             <Specification-Title>OpenAM Auth RSA ClearTrust</Specification-Title>
@@ -73,4 +73,36 @@
             </plugin>
         </plugins>
     </build>
+
+    <dependencies>
+        <dependency>
+           <groupId>javax.servlet</groupId>
+           <artifactId>servlet-api</artifactId>
+           <version>1.0</version>
+           <scope>system</scope>
+           <systemPath>${basedir}/../POC/tomcat/lib/servlet-api.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>org.forgerock.openam</groupId>
+            <artifactId>openam-shared</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/../POC/tomcat/webapps/openam/WEB-INF/lib/openam-shared-13.0.0-RC5.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>org.forgerock.openam</groupId>
+            <artifactId>openam-core</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/../POC/tomcat/webapps/openam/WEB-INF/lib/openam-core-13.0.0-RC5.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>sirrius.runtime</groupId>
+            <artifactId>sirrius-runtime</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/../AXM62SP2/sdk/java/runtime/lib/axm-runtime-api-6.2.2.jar</systemPath>
+        </dependency>
+    </dependencies>
+
 </project>
